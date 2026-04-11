@@ -245,16 +245,22 @@ The smoothed trend line removes single-frame noise to reveal crowd activity patt
 Histogram of all player speed estimates across the full video.
 Calculated using **pixel displacement between consecutive frames × calibration factor**.
 Shows the distribution of walking, jogging, and sprinting speeds.
+![Speed Distribution](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_speed_distribution.png)
+
 
 ### Graph 3 — Speed timeline
 Speed over time per tracked player ID.
 Identifies which players were most active and when sprint events occurred.
+![Speed Timeline](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_speed_timeline.png)
 
 ### Graph 4 — ID lifetime
 How many frames each track ID survived before being lost or re-assigned.
 Long bars = stable tracking; short bars = brief detection or ID swap.
 
+![ID Lifetime](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_id_lifetime.png)
+
 > All graphs are saved as high-resolution PNG files in `graphs/` and referenced in the technical report.
+> ![technical report](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/summary_report.txt).
 
 ---
 
