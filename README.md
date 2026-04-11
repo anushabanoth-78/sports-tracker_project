@@ -233,7 +233,7 @@ Produces **4 graphs** in `graphs/`:
 
 ## 📈 Analytics & Graphs
 
-All graphs are generated automatically from the output CSV using `generate_graphs.py`.
+All graphs are generated automatically from the output CSV using `graphs.py`.
 
 ### Graph 1 — Player count per frame
 Shows how many subjects were visible frame-by-frame.
