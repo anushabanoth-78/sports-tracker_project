@@ -180,9 +180,17 @@ python tracker.py \
 ### Generate analytics graphs
 
 ```bash
-python generate_graphs.py \
-    --csv output/count_over_time.csv \
-    --out graphs/
+### 📈 Generate analytics graphs
+
+Use the generated tracking data CSV:
+
+📄 [Download CSV](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/speed_ByteTrack.csv)
+
+```bash
+python graphs.py \
+    --csv output/count_ByteTrack.csv \📄 [Download CSV](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/count_ByteTrack.csv)
+
+    --out output/
 ```
 
 Produces **4 graphs** in `graphs/`:
