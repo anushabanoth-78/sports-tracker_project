@@ -126,7 +126,7 @@ Input video
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/sports-tracker.git
+git clone https://github.com/anushabanoth-78/sports-tracker_project.git
 cd sports-tracker
 
 # 2. Create and activate virtual environment
