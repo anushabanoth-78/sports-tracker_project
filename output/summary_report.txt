@@ -1,0 +1,45 @@
+============================================================
+TRACKING PIPELINE — ANALYSIS SUMMARY
+Tracker : ByteTrack
+============================================================
+
+--- Detection Stats ---
+Total frames analysed : 3,535
+Video duration        : 117.8s (1.96 min)
+Avg players/frame     : 2.07
+Peak players visible  : 7  (frame 2749, 91.6s)
+Frames with 0 players : 264 (7.5%)
+
+--- Tracking / ID Stats ---
+Total unique IDs      : 72
+Stable tracks (≥8f) : 56
+Short-lived tracks    : 16  (proxy for ID switches)
+ID stability rate     : 77.8%
+
+--- Speed Stats (plausible range: 0.5–40.0 km/h) ---
+Observations          : 5,483
+Mean speed            : 14.50 km/h
+Median speed          : 12.40 km/h
+Std deviation         : 9.64 km/h
+Min (filtered)        : 0.60 km/h
+Max (filtered)        : 40.00 km/h
+75th percentile       : 20.60 km/h
+90th percentile       : 29.38 km/h
+
+--- Per-Player Speed Summary (top 10 most tracked) ---
+ID          Obs   Avg km/h   Max km/h
+--------------------------------------
+#135        690       12.9       40.0
+#156        370       12.5       38.7
+#120        355       16.3       39.6
+#127        319       13.7       39.9
+#122        318       18.2       39.6
+#71         266        5.6       33.5
+#96         204        7.5       20.1
+#95         192        6.1       17.4
+#66         188        2.9        7.7
+#148        187       14.5       39.9
+
+============================================================
+END OF REPORT
+============================================================
