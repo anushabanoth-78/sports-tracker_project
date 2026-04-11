@@ -238,6 +238,8 @@ All graphs are generated automatically from the output CSV using `generate_graph
 ### Graph 1 — Player count per frame
 Shows how many subjects were visible frame-by-frame.
 The smoothed trend line removes single-frame noise to reveal crowd activity patterns.
+![Player Count](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_player_count.png)
+
 
 ### Graph 2 — Speed distribution (km/h)
 Histogram of all player speed estimates across the full video.
@@ -275,7 +277,7 @@ ByteTrack was selected because it offered the best balance of speed and accuracy
 
 ---
 
-## ⚠️ Assumptions & Limitations
+##  Assumptions & Limitations
 
 ### Assumptions
 
