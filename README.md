@@ -224,7 +224,7 @@ Produces **4 graphs** in `graphs/`:
 
 <div align="center">
 
-![contact](screenshots/contact_sheet.jpg)
+![contact](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/contact_sheet_ByteTrack.jpg)
 *117 auto-screenshots combined — every 3 seconds + on every new player ID*
 
 </div>
