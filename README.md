@@ -215,7 +215,7 @@ Produces **4 graphs** in `graphs/`:
 
 | Batter Close-up | ICC World Cup Wide Shot | Multi-ID Scene |
 |---|---|---|
-| ![s1](screenshots/demo_laptop_1.jpg) | ![s2](screenshots/demo_laptop_2.jpg) | ![s3](screenshots/demo_laptop_3.jpg) |
+| ![s1](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_045_t00m45s.jpg) | ![52](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_060_t01m00s.jpg) | ![s3](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_093_t01m33s.jpg) |
 | ID 29, conf 0.74 | IDs 121 & 124 tracked | ByteTrack active |
 
 </div>
@@ -367,7 +367,7 @@ sports-tracker/
 |---|---|
 | Assignment | Multi-Object Detection and Persistent ID Tracking in Public Sports Footage |
 | Type | AI / Computer Vision / Data Science |
-| Author | Anusha |
+| Author |  Banoth Anusha |
 | Model | YOLOv8m |
 | Tracker | ByteTrack |
 | Language | Python 3.10+ |
