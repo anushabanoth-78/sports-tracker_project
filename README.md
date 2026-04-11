@@ -260,7 +260,7 @@ Long bars = stable tracking; short bars = brief detection or ID swap.
 ![ID Lifetime](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_id_lifetime.png)
 
 > All graphs are saved as high-resolution PNG files in `graphs/` and referenced in the technical report.
-> ![technical report](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/summary_report.txt).
+> 📄 [View Technical Summary](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/summary_report.txt)
 
 ---
 
