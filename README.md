@@ -317,32 +317,32 @@ ByteTrack was selected because it offered the best balance of speed and accuracy
 
 ```
 sports-tracker/
-├── tracker.py                    ← Main tracking pipeline (detection + ByteTrack + analytics)
-├── generate_graphs.py            ← Analytics graph generator (4 plots from CSV)
-├── requirements.txt              ← Python dependencies
-├── README.md                     ← This file
 │
-├── report/
-│   └── Cricket_Tracker_Report.docx   ← Full technical report (10 sections)
+├── tracker.py                  # main tracking pipeline (YOLOv8 + ByteTrack)
+├── graphs.py                   # analysis graphs + summary report generator
+├── README.md                   # setup and usage guide
+├── requirements.txt            # python dependencies
+├── Cricket_Tracker_Report.docx # technical report
+├── yolov8n.pt                  # YOLOv8 model weights (auto-downloaded)
 │
 ├── output/
-│   ├── tracked_v2.mp4            ← Annotated output video
-│   ├── count_ByteTrack.csv       ← Frame-level detection counts
-│   ├── speed_ByteTrack.csv       ← Per-frame speed estimates
-│   └── summary_report.txt        ← Quick stats summary
+│   ├── tracked_v2.mp4                  # annotated output video
+│   ├── count_ByteTrack.csv             # player count per frame
+│   ├── speed_ByteTrack.csv             # per-player speed per frame
+│   ├── contact_sheet_ByteTrack.jpg     # all screenshots in one grid
+│   ├── graph_player_count.png          # player count over time
+│   ├── graph_speed_distribution.png    # speed histogram + KDE
+│   ├── graph_speed_timeline.png        # speed timeline per player
+│   ├── graph_id_lifetime.png           # track ID lifetime chart
+│   └── summary_report.txt             # full analysis report
 │
-├── graphs/
-│   ├── graph_player_count.png    ← Objects per frame + trend
-│   ├── graph_speed_distribution.png  ← Speed histogram (km/h)
-│   ├── graph_speed_timeline.png  ← Speed over time per ID
-│   └── graph_id_lifetime.png     ← Track ID survival duration
+├── screenshots/
+│   ├── frame_003_t00m03s.jpg   # screenshot at 3s
+│   ├── frame_006_t00m06s.jpg   # screenshot at 6s
+│   ├── ...                     # every 3 seconds of video
+│   └── heatmap_ByteTrack.jpg   # player position heatmap
 │
-└── screenshots/
-    ├── frame_close_batter.jpg    ← Close-up detection sample
-    ├── frame_multi_player.jpg    ← Multi-player tracking sample
-    ├── frame_wide_stadium.jpg    ← Wide-angle stadium sample
-    ├── heatmap_ByteTrack.jpg     ← Movement heatmap
-    └── contact_sheet.jpg         ← All 117 auto-screenshots in one grid
+└── public_cricket.mp4          # source video (or link below)
 ```
 
 ---
