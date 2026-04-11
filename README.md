@@ -204,7 +204,7 @@ Produces **4 graphs** in `graphs/`:
 
 | Trail Tracking | Boundary View | Final Overs |
 |---|---|---|
-| ![trail](screenshots/frame_trail_motion.jpg) | ![boundary](screenshots/frame_boundary.jpg) | ![final](screenshots/frame_final.jpg) |
+| ![trail](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_039_t00m39s.jpg) | ![boundary](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_060_t01m00s.jpg) | ![final](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/heatmap_ByteTrack.jpg) |
 | Fading trails per ID | Wide angle detection | Dense tracking |
 
 </div>
