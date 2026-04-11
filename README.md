@@ -177,21 +177,35 @@ python tracker.py \
 | `--show` | off | Show live preview window while processing |
 | `--screenshot-dir` | auto | Custom folder for auto-screenshots |
 
-### Generate analytics graphs
+---
+
+## 📈 Generate Analysis Graphs
+
+Run this after the tracker to produce all graphs and the summary report:
 
 ```bash
-### 📈 Generate analytics graphs
-
-Use the generated tracking data CSV:
-
-📄 [Download CSV](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/speed_ByteTrack.csv)
-
-```bash
-python graphs.py \
-    --csv output/count_ByteTrack.csv \📄 [Download CSV](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/count_ByteTrack.csv)
-
-    --out output/
+python graphs.py --out-dir output/ --fps 30.0
 ```
+
+This generates:
+- `output/graph_player_count.png` — active players over time
+- `output/graph_speed_distribution.png` — speed histogram
+- `output/graph_speed_timeline.png` — per-player speed over time
+- `output/graph_id_lifetime.png` — track ID stability chart
+- `output/summary_report.txt` — full stats report
+
+---
+
+## 📂 Output Files
+
+| File | Description |
+|---|---|
+| `output/tracked_v2.mp4` | Annotated output video |
+| `output/count_ByteTrack.csv` | Player count per frame |
+| `output/speed_ByteTrack.csv` | Per-player speed per frame |
+| `output/contact_sheet_ByteTrack.jpg` | All screenshots in one grid |
+| `output/summary_report.txt` | Full analysis report |
+| `screenshots/heatmap_ByteTrack.jpg` | Player position heatmap |
 
 Produces **4 graphs** in `graphs/`:
 
