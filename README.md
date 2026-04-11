@@ -353,8 +353,8 @@ sports-tracker/
 |---|---|
 | Platform | YouTube (public) |
 | Event | ICC Men's T20 World Cup |
-| Video title | *(add your video title here)* |
-| URL | *(add your YouTube link here)* |
+| Video title | *(https://github.com/anushabanoth-78/sports-tracker_project/blob/main/public_cricket.mp4)* |
+| URL | *(https://www.youtube.com/watch?v=KvSriYbrGD8)* |
 | License | Public / Creative Commons |
 | Duration used | Full video (2 min 17 sec / 3535 frames) |
 | Resolution | 640 × 360 @ 30 FPS |
