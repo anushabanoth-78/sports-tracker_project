@@ -19,6 +19,7 @@
 
 - [Overview](#-overview)
 - [Demo Video](#-demo-video)
+- [Project Report](#-project-Report)
 - [Project Structure](#-project-structure)
 - [Installation](#-installation)
 - [Dataset](#-dataset)
@@ -30,6 +31,7 @@
 - [Technologies Used](#-technologies-used)
 - [Future Improvements](#-future-improvements)
 - [Project Author](#-project-author)
+
 
 ---
 
@@ -105,6 +107,10 @@ The demo shows the complete pipeline running on a **2 min 17 sec ICC Men's T20 W
 
 ---
 ⬆️ [Back to Top](#table-of-contents)
+
+## 📄 Project Report
+
+📄 [View Full Report](https://docs.google.com/document/d/1gTrYxvRq3XQ_-J5DQT_eLHqm48SQCesn/edit)
 
 ## 📁 Project Structure
 
