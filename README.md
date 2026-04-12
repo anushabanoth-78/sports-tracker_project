@@ -112,6 +112,8 @@ The demo shows the complete pipeline running on a **2 min 17 sec ICC Men's T20 W
 
 📄 [View Full Report](https://docs.google.com/document/d/1gTrYxvRq3XQ_-J5DQT_eLHqm48SQCesn/edit)
 
+⬆️ [Back to Top](#table-of-contents)
+
 ## 📁 Project Structure
 
 ```
