@@ -356,7 +356,7 @@ sports-tracker/
 | URL | *(https://www.youtube.com/watch?v=KvSriYbrGD8)* |
 ## 🎥 Output Video
 
-[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/raw/main/public_cricket.mp4)
+[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/tracked_v2.mp)
 | License | Public / Creative Commons |
 | Duration used | Full video (2 min 17 sec / 3535 frames) |
 | Resolution | 640 × 360 @ 30 FPS |
