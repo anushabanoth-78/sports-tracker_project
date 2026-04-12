@@ -402,5 +402,9 @@ sports-tracker/
 <div align="center">
 
 *Built with YOLOv8 + ByteTrack — ICC T20 Cricket — Computer Vision Assignment*
+🔗 GitHub: https://github.com/anushabanoth-78
+Goa
+
+📧 banoth.anusha.22031@iitgoa.ac.in
 
 </div>
