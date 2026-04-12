@@ -441,7 +441,7 @@ python tracker.py \
 *Built with YOLOv8 + ByteTrack — ICC T20 Cricket — Computer Vision Assignment*
 
 </div>
-⬆️ [Back to Top](#table-of-contents)
+
 
 
 
