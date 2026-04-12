@@ -1,6 +1,6 @@
 <div align="center">
 
-# Multi-Object Detection & Persistent ID Tracking
+# 🏏 Multi-Object Detection & Persistent ID Tracking
 ### in Public Sports / Event Footage
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
@@ -9,14 +9,13 @@
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.8+-red?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-**YOLOv8 + ByteTrack / BoT-SORT pipeline for multi-person tracking with motion trails,
-movement heatmaps, speed estimation, and frame-level analytics.**
+**YOLOv8 + ByteTrack pipeline for multi-person tracking with motion trails, movement heatmaps, speed estimation, and frame-level analytics.**
 
 </div>
 
 ---
 
-## 📸 Live Demo
+## 📸 Sample Frames
 
 <div align="center">
 
@@ -27,28 +26,22 @@ movement heatmaps, speed estimation, and frame-level analytics.**
 
 </div>
 
-> 📹 Full annotated output video: `output/tracked_v2.mp4` — see `demo/` folder for walkthrough video.
-## 🎥 Output Video
-
-[Download Video (45MB)]([Download Video](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/tracked_v2.mp4))
-
-> ⚠️ GitHub does not support video preview. Please download to view.
 ---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Pipeline Architecture](#pipeline-architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Output Examples](#output-examples)
-- [Analytics & Graphs](#analytics--graphs)
-- [Tracker Comparison](#tracker-comparison)
-- [Assumptions & Limitations](#assumptions--limitations)
-- [Possible Improvements](#possible-improvements)
-- [File Structure](#file-structure)
-- [Video Source](#video-source)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Pipeline Architecture](#-pipeline-architecture)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Output Files](#-output-files)
+- [Analytics & Graphs](#-analytics--graphs)
+- [Tracker Comparison](#-tracker-comparison)
+- [Assumptions & Limitations](#-assumptions--limitations)
+- [Possible Improvements](#-possible-improvements)
+- [File Structure](#-file-structure)
+- [Video Source](#-video-source)
 
 ---
 
@@ -56,11 +49,11 @@ movement heatmaps, speed estimation, and frame-level analytics.**
 
 This project implements an **end-to-end computer vision pipeline** that:
 
-- Detects **players and sports balls** in every frame using **YOLOv8m**
+- Detects **players and sports balls** in every frame using **YOLOv8**
 - Assigns **persistent unique IDs** to each detected subject using **ByteTrack**
 - Estimates **player speed in km/h** using pixel displacement across frames
 - Visualises **bounding boxes, ID labels, speed, and motion trails** on an annotated output video
-- Generates **analytics** — heatmaps, object-count graphs, speed plots, and a summary CSV
+- Generates **analytics** — heatmaps, object-count graphs, speed plots, and summary CSVs
 
 The pipeline is designed to remain stable across real-world challenges:
 **occlusion**, **rapid movement**, **camera panning**, and **visually similar-looking players**.
@@ -71,24 +64,37 @@ The pipeline is designed to remain stable across real-world challenges:
 
 | Feature | Details |
 |---|---|
-| Object detection | YOLOv8m — COCO pre-trained, class: `person` (conf ≥ 0.35) |
+| Object detection | YOLOv8 — COCO pre-trained, class: `person` (conf ≥ 0.35) |
 | Multi-object tracking | ByteTrack (default) or BoT-SORT |
 | Persistent IDs | Stable across occlusion and re-entry via Kalman filter |
-| **Speed estimation** | **Pixel displacement → km/h displayed on each bounding box** |
+| Speed estimation | Pixel displacement → km/h displayed on each bounding box |
 | Motion trails | Fading colour-matched path per track ID (last 35 frames) |
 | Movement heatmap | Cumulative presence density saved as `heatmap.jpg` |
 | Object count CSV | Frame-by-frame detection counts |
-| Analytics graphs | 4 publication-ready graphs (see below) |
+| Analytics graphs | 4 publication-ready graphs |
 | Auto-screenshots | Every 3 seconds + on every new player ID detected |
 | Contact sheet | All screenshots combined in one grid image automatically |
-| HUD overlay | Live FPS, frame index, active count, total IDs (2-line, no overflow) |
-| Frame skipping | Optional — inference always runs, drawing skipped for speed |
+| HUD overlay | Live FPS, frame index, active count, total IDs |
 
 ---
 
 ## 🏗️ Pipeline Architecture
 
-![Pipeline Architecture](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/pipeline_architecture.png)
+```
+Input Video
+    │
+    ▼
+YOLOv8 Detection (per frame)
+    │
+    ▼
+ByteTrack / BoT-SORT (ID assignment)
+    │
+    ├──► Annotated Output Video (bounding boxes, trails, speed)
+    ├──► Screenshots (every 3s + new ID events)
+    ├──► Heatmap (cumulative player positions)
+    ├──► CSVs (player count + speed per frame)
+    └──► graphs.py ──► 4 Analytics Graphs + Summary Report
+```
 
 ---
 
@@ -104,7 +110,7 @@ The pipeline is designed to remain stable across real-world challenges:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/anushabanoth-78/sports-tracker_project.git
-cd sports-tracker
+cd sports-tracker_project
 
 # 2. Create and activate virtual environment
 python -m venv venv
@@ -126,7 +132,7 @@ pandas>=2.0.0
 supervision>=0.18.0
 ```
 
-> YOLOv8 weights (`yolov8m.pt`) are downloaded automatically on first run.
+> YOLOv8 weights (`yolov8n.pt`) are downloaded automatically on first run.
 
 ---
 
@@ -138,38 +144,26 @@ supervision>=0.18.0
 python tracker.py \
     --source  public_cricket.mp4 \
     --output  output/tracked_output.mp4 \
-    --model   yolov8m.pt \
+    --model   yolov8n.pt \
     --tracker bytetrack.yaml
 ```
 
-### All CLI options
+### CLI Options
 
 | Argument | Default | Description |
 |---|---|---|
 | `--source` | `public_cricket.mp4` | Input video path |
 | `--output` | `output/tracked_output.mp4` | Annotated output video path |
-| `--model` | `yolov8m.pt` | YOLOv8 weights (`n` / `m` / `l` / `x`) |
+| `--model` | `yolov8n.pt` | YOLOv8 weights (`n` / `m` / `l` / `x`) |
 | `--tracker` | `bytetrack.yaml` | `bytetrack.yaml` or `botsort.yaml` |
 | `--skip` | `1` | Draw annotations every N frames (inference always runs) |
 | `--show` | off | Show live preview window while processing |
-| `--screenshot-dir` | auto | Custom folder for auto-screenshots |
 
----
-
-## 📈 Generate Analysis Graphs
-
-Run this after the tracker to produce all graphs and the summary report:
+### Generate Analysis Graphs
 
 ```bash
 python graphs.py --out-dir output/ --fps 30.0
 ```
-
-This generates:
-- `output/graph_player_count.png` — active players over time
-- `output/graph_speed_distribution.png` — speed histogram
-- `output/graph_speed_timeline.png` — per-player speed over time
-- `output/graph_id_lifetime.png` — track ID stability chart
-- `output/summary_report.txt` — full stats report
 
 ---
 
@@ -182,49 +176,31 @@ This generates:
 | `output/speed_ByteTrack.csv` | Per-player speed per frame |
 | `output/contact_sheet_ByteTrack.jpg` | All screenshots in one grid |
 | `output/summary_report.txt` | Full analysis report |
+| `output/graph_player_count.png` | Objects detected per frame |
+| `output/graph_speed_distribution.png` | Speed histogram (km/h) |
+| `output/graph_speed_timeline.png` | Speed over time per player |
+| `output/graph_id_lifetime.png` | Track ID stability chart |
 | `screenshots/heatmap_ByteTrack.jpg` | Player position heatmap |
 
-Produces **4 graphs** in `graphs/`:
-
-| Graph | Description |
-|---|---|
-| `graph_player_count.png` | Objects detected per frame + smoothed trend line |
-| `graph_speed_distribution.png` | Histogram of player speed values (km/h) |
-| `graph_speed_timeline.png` | Speed over time per track ID |
-| `graph_id_lifetime.png` | How long each track ID was tracked (frames) |
+> ⚠️ `tracked_v2.mp4` is 45 MB — GitHub cannot preview it. Use the download button to view locally.
 
 ---
 
 ## 📊 Output Examples
 
-### Motion-trail annotated frames
-
-<div align="center">
-
-| Trail Tracking | Boundary View | Final Overs |
-|---|---|---|
-| ![trail](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_039_t00m39s.jpg) | ![boundary](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_060_t01m00s.jpg) | ![final](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/heatmap_ByteTrack.jpg) |
-| Fading trails per ID | Wide angle detection | Dense tracking |
-
-</div>
-
-### Actual system screenshots (laptop)
-
-<div align="center">
-
-| Batter Close-up | ICC World Cup Wide Shot | Multi-ID Scene |
-|---|---|---|
-| ![s1](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_045_t00m45s.jpg) | ![52](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_060_t01m00s.jpg) | ![s3](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_093_t01m33s.jpg) |
-| ID 29, conf 0.74 | IDs 121 & 124 tracked | ByteTrack active |
-
-</div>
-
-### Auto-screenshot contact sheet
-
+### Contact Sheet
 <div align="center">
 
 ![contact](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/contact_sheet_ByteTrack.jpg)
+
 *117 auto-screenshots combined — every 3 seconds + on every new player ID*
+
+</div>
+
+### Heatmap
+<div align="center">
+
+![heatmap](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/heatmap_ByteTrack.jpg)
 
 </div>
 
@@ -232,40 +208,23 @@ Produces **4 graphs** in `graphs/`:
 
 ## 📈 Analytics & Graphs
 
-All graphs are generated automatically from the output CSV using `graphs.py`.
-
-### Graph 1 — Player count per frame
-Shows how many subjects were visible frame-by-frame.
-The smoothed trend line removes single-frame noise to reveal crowd activity patterns.
+### Player Count per Frame
 ![Player Count](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_player_count.png)
 
-
-### Graph 2 — Speed distribution (km/h)
-Histogram of all player speed estimates across the full video.
-Calculated using **pixel displacement between consecutive frames × calibration factor**.
-Shows the distribution of walking, jogging, and sprinting speeds.
+### Speed Distribution (km/h)
 ![Speed Distribution](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_speed_distribution.png)
 
-
-### Graph 3 — Speed timeline
-Speed over time per tracked player ID.
-Identifies which players were most active and when sprint events occurred.
+### Speed Timeline
 ![Speed Timeline](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_speed_timeline.png)
 
-### Graph 4 — ID lifetime
-How many frames each track ID survived before being lost or re-assigned.
-Long bars = stable tracking; short bars = brief detection or ID swap.
-
+### ID Lifetime
 ![ID Lifetime](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/graph_id_lifetime.png)
 
-> All graphs are saved as high-resolution PNG files in `output/` and referenced in the technical report.
-> 📄 [View Technical Summary](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/summary_report.txt)
+> 📄 [View Full Summary Report](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/summary_report.txt)
 
 ---
 
 ## ⚖️ Tracker Comparison
-
-Both trackers were tested on the same video clip.
 
 | Criterion | ByteTrack | BoT-SORT |
 |---|---|---|
@@ -274,40 +233,36 @@ Both trackers were tested on the same video clip.
 | Processing speed | Faster | Slightly slower |
 | Memory usage | Lower | Higher |
 | Performance on fast motion | Good | Good |
-| Implementation complexity | Simple | Moderate |
 
 **Chosen default: ByteTrack**
 
-ByteTrack was selected because it offered the best balance of speed and accuracy for fast-moving cricket footage. Its two-stage matching — associating high-confidence detections first, then recovering low-confidence ones — is particularly effective for motion-blurred frames during batting strokes. BoT-SORT showed slightly better re-identification after full occlusion, which is useful for dense player clusters.
+ByteTrack was selected for its best balance of speed and accuracy on fast-moving cricket footage. Its two-stage matching — high-confidence detections first, then recovering low-confidence ones — handles motion-blurred frames effectively.
 
 ---
 
-##  Assumptions & Limitations
+## ⚠️ Assumptions & Limitations
 
 ### Assumptions
-
-- Input video is standard MP4 at reasonable resolution (480p or above)
-- Players wear distinct jerseys — visually identical subjects may cause ID swaps
-- Camera is roughly stationary or panning slowly — rapid zoom reduces accuracy
-- Speed estimation uses a fixed pixel-per-metre calibration and is approximate
+- Input video is standard MP4 at 480p or above
+- Camera is roughly stationary or panning slowly
+- Speed estimation uses a fixed pixel-per-metre calibration (approximate)
 
 ### Limitations
-
-- **High ID count**: 65+ track IDs across a 2-minute video includes re-assignments due to occlusion and re-entry — not all are unique individuals
-- **No ReID module**: A player who exits and re-enters the frame after >40 frames will receive a new ID
-- **CPU speed**: ~8–10 FPS on CPU; a CUDA GPU provides 40–60 FPS
-- **Motion blur**: Confidence drops to ~0.42 during high-speed batting strokes
-- **Spectator false positives**: Background crowd near boundaries occasionally triggers detections
+- **High ID count**: 65+ track IDs across a 2-minute video includes re-assignments due to occlusion — not all are unique individuals
+- **No ReID module**: A player who exits and re-enters after >40 frames receives a new ID
+- **CPU speed**: ~8–10 FPS on CPU; CUDA GPU provides 40–60 FPS
+- **Motion blur**: Confidence drops during high-speed batting strokes
+- **Spectator false positives**: Background crowd near boundaries may trigger detections
 
 ---
 
 ## 🔧 Possible Improvements
 
-- **ReID embeddings** — integrate appearance features (OSNet) to maintain IDs across full exits and re-entries
-- **Top-view projection** — homography transform to bird's-eye court view for tactical analysis
-- **Team clustering** — k-means on jersey colour histograms to auto-assign team labels
+- **ReID embeddings** — integrate OSNet appearance features to maintain IDs across re-entries
+- **Top-view projection** — homography transform to bird's-eye view for tactical analysis
+- **Team clustering** — k-means on jersey colour to auto-assign team labels
 - **Ball trajectory prediction** — Kalman filter tuned for ballistic motion
-- **Evaluation metrics** — HOTA / MOTA / IDF1 against hand-labelled ground truth
+- **Evaluation metrics** — HOTA / MOTA / IDF1 against labelled ground truth
 - **GPU deployment** — ONNX + TensorRT export for real-time 60 FPS inference
 
 ---
@@ -317,31 +272,29 @@ ByteTrack was selected because it offered the best balance of speed and accuracy
 ```
 sports-tracker/
 │
-├── tracker.py                  # main tracking pipeline (YOLOv8 + ByteTrack)
-├── graphs.py                   # analysis graphs + summary report generator
-├── README.md                   # setup and usage guide
-├── requirements.txt            # python dependencies
-├── Cricket_Tracker_Report.docx # technical report
-├── yolov8n.pt                  # YOLOv8 model weights (auto-downloaded)
+├── tracker.py                  # Main tracking pipeline (YOLOv8 + ByteTrack)
+├── graphs.py                   # Analytics graphs + summary report generator
+├── README.md                   # This file
+├── requirements.txt            # Python dependencies
+├── Cricket_Tracker_Report.docx # Technical report
+├── yolov8n.pt                  # YOLOv8 model weights
 │
 ├── output/
-│   ├── tracked_v2.mp4                  # annotated output video
-│   ├── count_ByteTrack.csv             # player count per frame
-│   ├── speed_ByteTrack.csv             # per-player speed per frame
-│   ├── contact_sheet_ByteTrack.jpg     # all screenshots in one grid
-│   ├── graph_player_count.png          # player count over time
-│   ├── graph_speed_distribution.png    # speed histogram + KDE
-│   ├── graph_speed_timeline.png        # speed timeline per player
-│   ├── graph_id_lifetime.png           # track ID lifetime chart
-│   └── summary_report.txt             # full analysis report
+│   ├── tracked_v2.mp4                  # Annotated output video
+│   ├── count_ByteTrack.csv             # Player count per frame
+│   ├── speed_ByteTrack.csv             # Per-player speed per frame
+│   ├── contact_sheet_ByteTrack.jpg     # All screenshots in one grid
+│   ├── graph_player_count.png          # Player count over time
+│   ├── graph_speed_distribution.png    # Speed histogram
+│   ├── graph_speed_timeline.png        # Speed timeline per player
+│   ├── graph_id_lifetime.png           # Track ID lifetime chart
+│   └── summary_report.txt             # Full analysis report
 │
-├── screenshots/
-│   ├── frame_003_t00m03s.jpg   # screenshot at 3s
-│   ├── frame_006_t00m06s.jpg   # screenshot at 6s
-│   ├── ...                     # every 3 seconds of video
-│   └── heatmap_ByteTrack.jpg   # player position heatmap
-│
-└── public_cricket.mp4          # source video (or link below)
+└── screenshots/
+    ├── frame_003_t00m03s.jpg   # Screenshot at 3s
+    ├── frame_006_t00m06s.jpg   # Screenshot at 6s
+    ├── ...                     # Every 3 seconds of video
+    └── heatmap_ByteTrack.jpg   # Player position heatmap
 ```
 
 ---
@@ -352,25 +305,21 @@ sports-tracker/
 |---|---|
 | Platform | YouTube (public) |
 | Event | ICC Men's T20 World Cup |
-| Video title | *(https://github.com/anushabanoth-78/sports-tracker_project/blob/main/public_cricket.mp4)* |
-| URL | *(https://www.youtube.com/watch?v=KvSriYbrGD8)* |
-## 🎥 Output Video
-
-[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/tracked_v2.mp)
+| URL | https://www.youtube.com/watch?v=KvSriYbrGD8 |
 | License | Public / Creative Commons |
-| Duration used | Full video (2 min 17 sec / 3535 frames) |
+| Duration used | 2 min 17 sec (3535 frames) |
 | Resolution | 640 × 360 @ 30 FPS |
 
 ---
 
-##  Assignment Info
+## 📌 Assignment Info
 
 | Field | Value |
 |---|---|
 | Assignment | Multi-Object Detection and Persistent ID Tracking in Public Sports Footage |
-| Type | AI / Computer Vision / Data Science |
-| Author |  Banoth Anusha |
-| Model | YOLOv8m |
+| Author | Banoth Anusha |
+| Institute | IIT Goa |
+| Model | YOLOv8n |
 | Tracker | ByteTrack |
 | Language | Python 3.10+ |
 
@@ -379,10 +328,9 @@ sports-tracker/
 <div align="center">
 
 *Built with YOLOv8 + ByteTrack — ICC T20 Cricket — Computer Vision Assignment*
-</div>
-🔗 GitHub: https://github.com/anushabanoth-78
-Goa
 
-📧 banoth.anusha.22031@iitgoa.ac.in
-----
+🔗 [GitHub](https://github.com/anushabanoth-78) &nbsp;|&nbsp; 📧 banoth.anusha.22031@iitgoa.ac.in
+
+</div>
+
 
