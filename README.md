@@ -45,8 +45,9 @@ This project implements an **end-to-end computer vision pipeline** that:
 
 The pipeline is designed to remain stable across real-world challenges:
 **occlusion**, **rapid movement**, **camera panning**, and **visually similar-looking players**.
-⬆️ [Back to Top](#table-of-contents)
+
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🎬 Demo Video
 
@@ -103,6 +104,7 @@ The demo shows the complete pipeline running on a **2 min 17 sec ICC Men's T20 W
 > ⚠️ Full annotated video also available at: `output/tracked_v2.mp4` (45 MB — download to view locally)
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 📁 Project Structure
 
@@ -135,6 +137,7 @@ sports-tracker/
 ```
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## ⚙️ Installation
 
@@ -173,6 +176,7 @@ supervision>=0.18.0
 > YOLOv8 weights (`yolov8n.pt`) are downloaded automatically on first run.
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 📦 Dataset
 
@@ -188,6 +192,7 @@ supervision>=0.18.0
 No custom dataset was collected. The pipeline uses **YOLOv8 pre-trained on COCO** (which includes the `person` class) applied directly to the cricket footage. No fine-tuning was required.
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🏋️ Training the Model
 
@@ -213,6 +218,7 @@ yolo train \
 ```
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 📈 Evaluation & Charts
 
@@ -268,7 +274,7 @@ Long bars = stable tracking; short bars = brief detection or ID swap.
 > 📄 [View Full Summary Report](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/summary_report.txt)
 
 ---
-
+⬆️ [Back to Top](#table-of-contents)
 ## 🔍 How It Works
 
 ```
@@ -294,7 +300,9 @@ Output
     ├──► Heatmap (cumulative player positions)
     ├──► CSVs (player count + speed per frame)
     └──► graphs.py → 4 analytics graphs + summary report
+
 ```
+⬆️ [Back to Top](#table-of-contents)
 
 ### Tracker Comparison
 
@@ -311,7 +319,9 @@ Both trackers were tested on the same video clip.
 
 **Chosen default: ByteTrack**
 
-ByteTrack was selected because it offered the best balance of speed and accuracy for fast-moving cricket footage. Its two-stage matching — associating high-confidence detections first, then recovering low-confidence ones — is particularly effective for motion-blurred frames during batting strokes. BoT-SORT showed slightly better re-identification after full occlusion, which is useful for dense player clusters.
+ByteTrack was selected because it offered the best balance of speed and accuracy for fast-moving cricket footage. Its two-stage matching — associating high-confidence detections first, then recovering low-confidence ones — is particularly effective for motion-blurred frames during batting strokes. BoT-SORT showed 
+slightly better re-identification after full occlusion, which is useful for dense player clusters.
+⬆️ [Back to Top](#table-of-contents)
 
 ### Assumptions & Limitations
 
@@ -329,6 +339,7 @@ ByteTrack was selected because it offered the best balance of speed and accuracy
 - **Spectator false positives**: Background crowd near boundaries occasionally triggers detections
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🚀 Running the Tracker
 
@@ -339,6 +350,7 @@ python tracker.py \
     --model   yolov8n.pt \
     --tracker bytetrack.yaml
 ```
+⬆️ [Back to Top](#table-of-contents)
 
 ### CLI Options
 
@@ -353,6 +365,7 @@ python tracker.py \
 | `--screenshot-dir` | auto | Custom folder for auto-screenshots |
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🧩 Code Modules
 
@@ -374,6 +387,7 @@ python tracker.py \
 | `build_contact_sheet()` | Combines all screenshots into one grid image |
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🛠️ Technologies Used
 
@@ -389,6 +403,7 @@ python tracker.py \
 | Supervision | >= 0.18.0 | Tracker integration |
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🔧 Future Improvements
 
@@ -402,6 +417,7 @@ python tracker.py \
 
 ---
 
+⬆️ [Back to Top](#table-of-contents)
 ## 👩‍💻 Project Author
 
 <div align="center">
@@ -425,6 +441,7 @@ python tracker.py \
 *Built with YOLOv8 + ByteTrack — ICC T20 Cricket — Computer Vision Assignment*
 
 </div>
+⬆️ [Back to Top](#table-of-contents)
 
 
 
