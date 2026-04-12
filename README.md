@@ -30,7 +30,7 @@ movement heatmaps, speed estimation, and frame-level analytics.**
 > 📹 Full annotated output video: `output/tracked_v2.mp4` — see `demo/` folder for walkthrough video.
 ## 🎥 Output Video
 
-[Download Video (45MB)]([Download Video](https://github.com/anushabanoth-78/sports-tracker_project/raw/main/output/tracked_v2.mp4))
+[Download Video (45MB)]([Download Video](https://github.com/anushabanoth-78/sports-tracker_project/raw/main/output/tracked_v2.mp4)
 
 > ⚠️ GitHub does not support video preview. Please download to view.
 ---
