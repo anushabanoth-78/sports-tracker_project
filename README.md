@@ -22,7 +22,7 @@ movement heatmaps, speed estimation, and frame-level analytics.**
 
 | Close-up Detection | Multi-Player Tracking | Wide Stadium View |
 |---|---|---|
-| ![close](screenshots/frame_close_batter.jpg) | ![multi](screenshots/frame_multi_player.jpg) | ![wide](screenshots/frame_wide_stadium.jpg) |
+| ![close](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_021_t00m21s.jpg) | ![multi](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_084_t01m24s.jpg) | ![wide](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/screenshots/frame_108_t01m48s.jpg) |
 | ID 1 — conf 0.90 | Multiple IDs tracked | IDs 121, 124 visible |
 
 </div>
