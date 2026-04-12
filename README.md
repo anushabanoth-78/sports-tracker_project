@@ -30,7 +30,7 @@ movement heatmaps, speed estimation, and frame-level analytics.**
 > 📹 Full annotated output video: `output/tracked_v2.mp4` — see `demo/` folder for walkthrough video.
 > ## 🎥 Output Video
 
-[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/raw/main/public_cricket.mp4)
+[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/output/tracked_v2.mp4)
 
 ---
 
@@ -383,6 +383,9 @@ sports-tracker/
 | Event | ICC Men's T20 World Cup |
 | Video title | *(https://github.com/anushabanoth-78/sports-tracker_project/blob/main/public_cricket.mp4)* |
 | URL | *(https://www.youtube.com/watch?v=KvSriYbrGD8)* |
+## 🎥 Output Video
+
+[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/raw/main/public_cricket.mp4)
 | License | Public / Creative Commons |
 | Duration used | Full video (2 min 17 sec / 3535 frames) |
 | Resolution | 640 × 360 @ 30 FPS |
