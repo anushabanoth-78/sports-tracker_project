@@ -28,6 +28,9 @@ movement heatmaps, speed estimation, and frame-level analytics.**
 </div>
 
 > 📹 Full annotated output video: `output/tracked_v2.mp4` — see `demo/` folder for walkthrough video.
+> ## 🎥 Output Video
+
+[Click here to watch the video](https://github.com/anushabanoth-78/sports-tracker_project/raw/main/public_cricket.mp4)
 
 ---
 
