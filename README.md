@@ -14,6 +14,31 @@
 </div>
 
 ---
+## 🎬 Live Demo
+
+> 📹 **[Click here to watch the full demo video](https://drive.google.com/file/d/1Gs_G_2aswDxPRhc6VqKNHUhso3MaJcHE/view?usp=drive_link)**
+
+The demo video shows the complete pipeline running on a **2 min 17 sec ICC Men's T20 World Cup** clip.
+
+### What you'll see in the demo:
+
+| Timestamp | What's Happening |
+|---|---|
+| 0:00 – 0:20 | YOLOv8 detecting players frame-by-frame with confidence scores |
+| 0:20 – 0:50 | ByteTrack assigning persistent IDs with colour-coded bounding boxes |
+| 0:50 – 1:20 | Motion trails showing player movement paths (last 35 frames) |
+| 1:20 – 1:50 | Speed estimation (km/h) displayed live on each player |
+| 1:50 – 2:17 | HUD overlay — live FPS, frame index, active count, total IDs |
+
+### Key highlights:
+- ✅ **65+ unique track IDs** assigned across the full video
+- ✅ **Stable tracking** through occlusion and camera panning
+- ✅ **Real-time speed** displayed per player in km/h
+- ✅ **Fading motion trails** per track ID (colour-matched)
+- ✅ **Auto-screenshots** captured every 3 seconds + on new ID events
+
+> ⚠️ GitHub does not support video preview for large files.
+> Full annotated video also available at: `output/tracked_v2.mp4`
 
 ## 📸 Sample Frames
 
