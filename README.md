@@ -85,39 +85,9 @@ The pipeline is designed to remain stable across real-world challenges:
 
 ---
 
-Input video (public_cricket.mp4)
-          │
-          ▼
-┌─────────────────────────────────────────┐
-│         YOLOv8m  [DETECTOR]             │
-│  persons conf ≥ 0.50 · ball ≥ 0.30     │
-│  IOU ≥ 0.30 · classes: 0, 32 only      │
-└──────────────────┬──────────────────────┘
-                   │ boxes + confs + class IDs
-                   ▼
-┌─────────────────────────────────────────┐
-│         ByteTrack  [TRACKER]            │
-│  Kalman filter · IoU matching           │
-│  scene-cut detection + tracker reset    │
-└──────────────────┬──────────────────────┘
-                   │ track ID + box + velocity
-                   ▼
-┌─────────────────────────────────────────┐
-│         Visualisation  [RENDER]         │
-│  bounding boxes · speed (km/h)          │
-│  motion trails · HUD overlay            │
-└──────────────────┬──────────────────────┘
-                   │
-                   ▼
-┌─────────────────────────────────────────┐
-│         Analytics Engine  [OUTPUT]      │
-│  heatmap · CSV export · graphs          │
-│  screenshots · contact sheet            │
-└───────┬─────────────┬───────────────────┘
-        │             │              │
-        ▼             ▼              ▼
- tracked_v2.mp4   graphs/+CSVs   screenshots/
- annotated video  speed,count    frames+heatmap
+## 🏗️ Pipeline Architecture
+
+![Pipeline Architecture](https://github.com/anushabanoth-78/sports-tracker_project/blob/main/pipeline_architecture.png)
 
 ---
 
