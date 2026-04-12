@@ -47,6 +47,7 @@ The pipeline is designed to remain stable across real-world challenges:
 **occlusion**, **rapid movement**, **camera panning**, and **visually similar-looking players**.
 
 ---
+⬆️ [Back to Top](#table-of-contents)
 
 ## 🎬 Demo Video
 
